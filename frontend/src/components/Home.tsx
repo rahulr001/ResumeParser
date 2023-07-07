@@ -32,6 +32,7 @@ const Home = () => {
     event: React.SyntheticEvent | Event,
     reason?: string
   ) => {
+    console.log(event)
     if (reason === "clickaway") {
       return;
     }

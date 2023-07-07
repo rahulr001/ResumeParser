@@ -17,7 +17,7 @@ export default function DataList() {
     {
       field: "actions",
       headerName: "Actions",
-      width: 180,
+      width: 200,
       headerAlign: "center",
       align: "center",
       renderCell: (params) => (
@@ -50,7 +50,7 @@ export default function DataList() {
         </div>
       ),
     },
-    { field: "id", headerName: "ID", width: 150 },
+    { field: "id", headerName: "ID", width: 240 },
     {
       field: "name",
       headerName: "Name",
@@ -62,14 +62,14 @@ export default function DataList() {
       field: "email",
       headerName: "Email",
 
-      width: 200,
+      width: 220,
       editable: true,
     },
     {
       field: "mobile_no",
       headerName: "Mobile NO",
       // sortable: false,
-      width: 160,
+      width: 180,
       editable: true,
     },
   ];

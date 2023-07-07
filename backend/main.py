@@ -1,7 +1,7 @@
 from fastapi import FastAPI,UploadFile,File,Body
 from database import db,User_Collection
 from models import User
-from parser import extract_contact_number_from_resume,extract_email_from_resume,extract_name_from_resume,extract_text_from_pdf
+from parser import extract_contact_number_from_resume,extract_email_from_resume,extract_name_from_resume
 from schemas import user_type
 from fastapi.middleware.cors import CORSMiddleware
 from bson.objectid import ObjectId
@@ -18,10 +18,9 @@ app.add_middleware(
 
 @app.post("/add_data",response_description="data added successfully" )
 async def add_data(file:UploadFile=File(...)):
-    text = extract_text_from_pdf(file.filename)
-    name = extract_name_from_resume(text)
-    email = extract_email_from_resume(text)
-    mobile_no = extract_contact_number_from_resume(text)
+    name = extract_name_from_resume(file.filename)
+    email = extract_email_from_resume(file.filename)
+    mobile_no = extract_contact_number_from_resume(file.filename)
     data = {
         'name':name,
         'email':email,

@@ -32,7 +32,7 @@ export default function DataList() {
             size="small"
             aria-label="edit"
             onClick={() => {
-              handleEdit(params.row.id,params.row);
+              handleEdit(params.row.id, params.row);
             }}
           >
             <SaveIcon />
@@ -104,9 +104,14 @@ export default function DataList() {
       }, 2000);
     });
   };
-  const handleEdit = (id: any,params:any) => {
+  const handleEdit = (id: any, params: any) => {
+    const values = {
+      name: params.name,
+      email: params.email,
+      mobile_no: params.mobile_no,
+    };
     console.log(params);
-    axios.put(`http://127.0.0.1:8000/update/${id}`,params).then((res) => {
+    axios.put(`http://127.0.0.1:8000/update/${id}`, values).then((res) => {
       console.log(res);
       setMessage("Data updated successfully");
       setOpen(true);

@@ -8,7 +8,7 @@ from resume_parser import resumeparse
 # resume_parser = lazy_module('resume_parser.resumeparse')
 # t1 = threading.Thread(target=resumeparse)
 # t1.start()
-print(dir(resume_parser.resumeparse))
+# print(dir(resume_parser.resumeparse))
 # t1.join()
 
 # def extract_text(file_path: str) -> str:

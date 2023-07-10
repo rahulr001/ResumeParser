@@ -3,9 +3,9 @@ from pdfminer.high_level import extract_text
 from tika import parser
 from pyresparser import ResumeParser
 import threading
-from lazy_import import lazy_module
+# from lazy_import import lazy_module
 from resume_parser import resumeparse
-resume_parser = lazy_module('resume_parser.resumeparse')
+# resume_parser = lazy_module('resume_parser.resumeparse')
 # t1 = threading.Thread(target=resumeparse)
 # t1.start()
 print(dir(resume_parser.resumeparse))

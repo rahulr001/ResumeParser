@@ -59,7 +59,7 @@ def extract_name_from_resume(file_path: str) -> str:
     return ResumeParser(file_path).get_extracted_data()['name']
 
 
-if __name__ == '__main__':
+if __name__ == '__main__':  
     # text = extract_text_from_pdf(f'Resume.docx')
     print(extract_contact_number_from_resume(f'Resume.pdf'))
     print(extract_email_from_resume(f'Resume.pdf'))

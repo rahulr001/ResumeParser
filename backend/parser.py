@@ -18,49 +18,44 @@ from pyresparser import ResumeParser
 
 
 # def extract_contact_number_from_resume(text: str) -> int:
-#     contact_number = None
 #     pattern = r"\b(?:\+?\d{1,3}[-.\s]?)?\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}\b"
 #     match = re.search(pattern, text)
 #     if match:
-#         contact_number = match.group()
-#     return contact_number
+#         return match.group()
 
 
 # def extract_email_from_resume(text: str) -> str:
-#     email = None
 #     pattern = r"\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\b"
 #     match = re.search(pattern, text)
 #     if match:
-#         email = match.group()
-#     return email
+#         return match.group()
 
 
 # def extract_name_from_resume(text: str) -> str:
-#     name = None
 #     pattern = r"(\b[A-Z][a-z]+\b)\s(\b[A-Z][a-z]+\b)"
 #     match = re.search(pattern, text)
 #     if match:
-#         name = match.group()
-#     return name
+#         return match.group()
+
 
 def extract_contact_number_from_resume(file_path: str) -> int:
     if file_path.endswith('.doc'):
-       from resume_parser import resumeparse
-       return resumeparse.read_file(file_path)['phone']
+        from resume_parser import resumeparse
+        return resumeparse.read_file(file_path)['phone']
     return ResumeParser(file_path).get_extracted_data()['mobile_number']
 
 
 def extract_email_from_resume(file_path: str) -> str:
     if file_path.endswith('.doc'):
-       from resume_parser import resumeparse
-       return resumeparse.read_file(file_path)['email']
+        from resume_parser import resumeparse
+        return resumeparse.read_file(file_path)['email']
     return ResumeParser(file_path).get_extracted_data()['email']
 
 
 def extract_name_from_resume(file_path: str) -> str:
     if file_path.endswith('.doc'):
-       from resume_parser import resumeparse
-       return resumeparse.read_file(file_path)['name']
+        from resume_parser import resumeparse
+        return resumeparse.read_file(file_path)['name']
     return ResumeParser(file_path).get_extracted_data()['name']
 
 
@@ -69,4 +64,3 @@ if __name__ == '__main__':
     print(extract_contact_number_from_resume(f'Resume.pdf'))
     print(extract_email_from_resume(f'Resume.pdf'))
     print(extract_name_from_resume(f'Resume.pdf'))
-

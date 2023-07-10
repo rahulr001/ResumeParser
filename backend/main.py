@@ -6,6 +6,7 @@ from schemas import user_type
 from fastapi.middleware.cors import CORSMiddleware
 from bson.objectid import ObjectId
 
+
 app = FastAPI()
 
 app.add_middleware(

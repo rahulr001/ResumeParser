@@ -1,7 +1,7 @@
 from fastapi import FastAPI, UploadFile, File, Body
 from database import db, User_Collection
 from models import User
-from parser import extract_contact_number_from_resume, extract_email_from_resume, extract_name_from_resume
+from parser import extract_contact_number_from_resume, extract_email_from_resume, extract_name_from_resume, extract_address_from_resume, extract_text
 from schemas import user_type
 from fastapi.middleware.cors import CORSMiddleware
 from bson.objectid import ObjectId
@@ -18,19 +18,22 @@ app.add_middleware(
 )
 
 
-@app.post("/add_data", response_description="data added successfully")
+@app.post("/parse_data", response_description="data added successfully")
 async def add_data(file: UploadFile = File(...)):
     name = extract_name_from_resume(file.filename)
     email = extract_email_from_resume(file.filename)
     mobile_no = extract_contact_number_from_resume(file.filename)
-    data = {
-        'name': name,
-        'email': email,
-        'mobile_no': mobile_no
-    }
-    db_req = User(name=name, email=email, mobile_no=mobile_no)
-    User_Collection.insert_one(data)
+    text = extract_text(file.filename)
+    address = extract_address_from_resume(text)
+    db_req = User(name=name, email=email, mobile_no=mobile_no, address=address)
     return {'result': db_req}
+
+
+@app.post("/add_data", response_description="data added successfully")
+async def add_data(request=Body(...)):
+    print("req", request)
+    User_Collection.insert_one(request)
+    return {'result': 'success'}
 
 
 @app.get("/")

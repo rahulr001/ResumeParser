@@ -16,6 +16,7 @@ import { Link } from '@mui/material';
 export const navLinks = [
   { name: "Home", link: "" },
   { name: "User List", link: "list" },
+  // { name: "Add User", link: "create" },
 ];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 

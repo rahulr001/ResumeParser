@@ -10,5 +10,6 @@ def user_type(request):
         'id':str(request['_id']),
         'name':request['name'],
         'email':request['email'],
-        'mobile_no':request['mobile_no']
+        'mobile_no':request['mobile_no'],
+        'address':request['address']
     }

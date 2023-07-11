@@ -9,3 +9,4 @@ class User(Base):
     name = Column(String)
     email = Column(String)
     mobile_no = Column(Integer)
+    address = Column(String)

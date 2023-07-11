@@ -4,15 +4,16 @@ from tika import parser
 from pyresparser import ResumeParser
 import threading
 # from lazy_import import lazy_module
-from resume_parser import resumeparse
+# from resume_parser import resumeparse
 # resume_parser = lazy_module('resume_parser.resumeparse')
 # t1 = threading.Thread(target=resumeparse)
 # t1.start()
 # print(dir(resume_parser.resumeparse))
 # t1.join()
 
-# def extract_text(file_path: str) -> str:
-#     return parser.from_file(file_path,service='text')["content"]
+
+def extract_text(file_path: str) -> str:
+    return parser.from_file(file_path, service='text')["content"]
 
 
 # def extract_contact_number_from_resume(text: str) -> int:
@@ -35,30 +36,38 @@ from resume_parser import resumeparse
 #     if match:
 #         return match.group()
 
+def extract_address_from_resume(text: str) -> str:
+    pattern = r"(\d*)\s+((?:[\w+\s*-])+)[\,]\s+([a-zA-Z]+)\s+([0-9a-zA-Z]+)"
+    match = re.search(pattern, text)
+    print(match)
+    if match:
+        return match.group()
+
 
 def extract_contact_number_from_resume(file_path: str) -> int:
-    if file_path.endswith('.doc'):
-        # from resume_parser import resumeparse
-        return resumeparse.read_file(file_path)['phone']
+    # if file_path.endswith('.doc'):
+    # from resume_parser import resumeparse
+    # return resumeparse.read_file(file_path)['phone']
     return ResumeParser(file_path).get_extracted_data()['mobile_number']
 
 
 def extract_email_from_resume(file_path: str) -> str:
-    if file_path.endswith('.doc'):
-        # from resume_parser import resumeparse
-        return resumeparse.read_file(file_path)['email']
+    # if file_path.endswith('.doc'):
+    # from resume_parser import resumeparse
+    # return resumeparse.read_file(file_path)['email']
     return ResumeParser(file_path).get_extracted_data()['email']
 
 
 def extract_name_from_resume(file_path: str) -> str:
-    if file_path.endswith('.doc'):
-        # from resume_parser import resumeparse
-        return resumeparse.read_file(file_path)['name']
+    # if file_path.endswith('.doc'):
+    # from resume_parser import resumeparse
+    # return resumeparse.read_file(file_path)['name']
     return ResumeParser(file_path).get_extracted_data()['name']
 
 
-if __name__ == '__main__':  
-    # text = extract_text(f'Resume.docx')
-    print(extract_contact_number_from_resume(f'Resume.doc'))
-    print(extract_email_from_resume(f'Resume.doc'))
-    print(extract_name_from_resume(f'Resume.doc'))
+if __name__ == '__main__':
+    text = extract_text(f'Resume.pdf')
+    print(extract_address_from_resume(text))
+    # print(extract_contact_number_from_resume(f'Resume.pdf'))
+    # print(extract_email_from_resume(f'Resume.pdf'))
+    # print(extract_name_from_resume(f'Resume.pdf'))

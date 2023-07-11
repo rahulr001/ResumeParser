@@ -72,6 +72,13 @@ export default function DataList() {
       width: 180,
       editable: true,
     },
+    {
+      field: "address",
+      headerName: "Address",
+      // sortable: false,
+      width: 180,
+      editable: true,
+    },
   ];
 
   const handleGet = () => {

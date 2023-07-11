@@ -4,7 +4,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import DataList from "./components/DataList";
 
 function App() {
-
   return (
     <>
       <NavBar />
@@ -12,6 +11,7 @@ function App() {
         <Routes>
           <Route path="/list" element={<DataList />} />
           <Route path="/" element={<Home />} />
+          {/* <Route path="/create" element={<Form />} /> */}
         </Routes>
       </BrowserRouter>
     </>

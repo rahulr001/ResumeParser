@@ -43,7 +43,7 @@ referencing
 regex==2023.6.3
 requests==2.31.0
 resume-parser==0.8.4
-rpds-py
+# rpds-py
 six==1.16.0
 smart-open==6.3.0
 sortedcontainers==2.4.0

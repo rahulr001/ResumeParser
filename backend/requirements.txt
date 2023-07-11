@@ -24,7 +24,7 @@ murmurhash==1.0.9
 nltk==3.8.1
 numpy
 packaging==23.1
-pandas==2.0.3
+pandas
 pathy==0.10.2
 pdfminer.six==20221105
 pdfplumber==0.9.0

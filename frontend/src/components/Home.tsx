@@ -1,6 +1,5 @@
 import FileUpload from "./FileUpload";
-import Form from "./Form";
-import { Button, Paper, Typography } from "@mui/material";
+import { Paper, Typography } from "@mui/material";
 
 const Home = () => {
   return (

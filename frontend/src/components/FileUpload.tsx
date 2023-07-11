@@ -3,7 +3,6 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import axios from "axios";
 import Snackbar from "@mui/material/Snackbar";
-import { useNavigate } from "react-router-dom";
 import Form from "./Form";
 const FileUpload = () => {
   const [file, setFile] = useState<any>();
@@ -14,7 +13,6 @@ const FileUpload = () => {
     mobile_no: "",
     address: "",
   });
-  const navigate = useNavigate();
   const handleSubmit = (e: any) => {
     e.preventDefault();
     const formData = new FormData();
